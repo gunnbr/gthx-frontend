@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="span8 show-grid">
+    <div class="rounded-box">
+      <h3>Search for a factoid</h3>
+      <p>Search through gthx's database of factoids to find one
+        you're interested in.
+      </p>
+      <form>
+        <div class="input-group">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
+            <input id="searchstring" type="text" class="form-control" name="search" placeholder="Enter search string">
+          </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="main">
+  <table class="table bordered-table" id="resultTable">
+    <thead>
+      <tr>
+        <th>Factoid</th>
+        <th>Value</th>
+        <th>Set by</th>
+      </tr>
+    </thead>
+    <tbody id="results">
+      <tr class="loading">
+        <td colspan="2"></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
