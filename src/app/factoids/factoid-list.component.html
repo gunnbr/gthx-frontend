@@ -8,7 +8,7 @@
       <form>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-            <input id="searchstring" type="text" class="form-control" name="search" placeholder="Enter search string">
+            <input [(ngModel)]='searchString' type="text" class="form-control" name="search" placeholder="Enter search string">
           </div>
       </form>
     </div>
@@ -16,7 +16,7 @@
 </div>
 
 <div class="container" id="main">
-  <table class="table bordered-table" id="resultTable">
+  <table class="table bordered-table" *ngIf="factoids && factoids.length">
     <thead>
       <tr>
         <th>Factoid</th>
@@ -25,8 +25,10 @@
       </tr>
     </thead>
     <tbody id="results">
-      <tr class="loading">
-        <td colspan="2"></td>
+      <tr *ngFor="let factoid of factoids">
+        <td>{{factoid.item}}</td>
+        <td>{{factoid.value}}</td>
+        <td>{{factoid.nick}}</td>
       </tr>
     </tbody>
   </table>

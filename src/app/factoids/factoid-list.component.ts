@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IFactoid } from './factoid';
+import { FactoidService } from './factoid.service';
 
 @Component({
   selector: 'gthx-factoid-list',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FactoidListComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _factoidService: FactoidService) { }
 
-  ngOnInit() {
+  factoids: IFactoid[];
+  errorMessage: string;
+  _searchString: string = 'prusa';
+  get searchString(): string{
+    return this._searchString;
+  }
+  set searchString(value:string){
+    this._searchString = value;
+    console.log('searchString set to ' + value);
   }
 
+  ngOnInit() {
+    this._factoidService.searchFactoids(this.searchString)
+    .subscribe(response => {
+        this.factoids = response.data;
+       },
+      error => this.errorMessage = <any>error);
+  }
 }
