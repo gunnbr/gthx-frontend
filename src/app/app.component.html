@@ -1,25 +1,25 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div>
-  <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-      <div class="navbar-header">
-      <a class="navbar-brand" href="#">{{ name }}</a>
-      </div>
-      <ul class="nav navbar-nav">
-      <li class="active"><a [routerLink]="['/welcome']">Home</a></li>
-      <li><a [routerLink]="['/factoids']">Factoids</a></li>
-      <li><a [routerLink]="['/stats']">Stats</a></li>
-      <li><a [routerLink]="['/admin']">Admin</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      </ul>
+<div class="ui-g ui-g-nopad" id="header">
+  <div class="ui-g-1">
+    <img src="assets/robot64.png" id="top-logo"/>
   </div>
-  </nav>
-    <div class="container">
+  <div class="ui-g-9">
+    GThx
+  </div>
+  <div class="ui-g-2" id="notification">
+
+  </div>
+</div>
+
+<div class="ui-g ui-g-nopad">
+  <div class="ui-g-2 ui-g-nopad" id="sidegutter">
+    <div id="sidenav">
+      <p-menu #bigMenu [model]="menuItems"></p-menu>
     </div>
- </div>
+  </div>
+  
+  <div id="content-body" class="ui-g-10 ui-g-nopad">
+    <router-outlet></router-outlet>
+    <div class="ui-g">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+  </div>
 
-<router-outlet></router-outlet>
-
-<div class="container">Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</div>

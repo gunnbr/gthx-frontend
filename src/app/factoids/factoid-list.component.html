@@ -1,10 +1,15 @@
-<div class="container">
-  <div class="span8 show-grid">
-    <div class="rounded-box">
-      <h3>Search for a factoid</h3>
-      <p>Search through gthx's database of factoids to find one
-        you're interested in.
-      </p>
+<div class="ui-g">
+  <div class="header ui-g-12">
+    <h2>
+      Factoids
+    </h2>
+    <h3>Search through gthx's database of factoids to find one
+      you're interested in.
+    </h3>
+  </div>
+
+<!--
+  <div class="rounded-box">
       <form>
         <div class="input-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
@@ -13,23 +18,11 @@
       </form>
     </div>
   </div>
-</div>
+-->
 
-<div class="container" id="main">
-  <table class="table bordered-table" *ngIf="factoids && factoids.length">
-    <thead>
-      <tr>
-        <th>Factoid</th>
-        <th>Value</th>
-        <th>Set by</th>
-      </tr>
-    </thead>
-    <tbody id="results">
-      <tr *ngFor="let factoid of factoids">
-        <td>{{factoid.item}}</td>
-        <td>{{factoid.value}}</td>
-        <td>{{factoid.nick}}</td>
-      </tr>
-    </tbody>
-  </table>
+  <p-dataTable [value]="factoids" class="ui-g-12">
+    <p-column field="item" header="Factoid"></p-column>
+    <p-column field="value" header="Value"></p-column>
+    <p-column field="nick" header="Set by" [sortable]="true"></p-column>
+  </p-dataTable>
 </div>
