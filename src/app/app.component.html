@@ -8,14 +8,8 @@
       <ul class="nav navbar-nav">
       <li class="active"><a [routerLink]="['/welcome']">Home</a></li>
       <li><a [routerLink]="['/factoids']">Factoids</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Stats <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <li><a href="#">Factoids</a></li>
-              <li><a href="#">Things</a></li>
-              <li><a href="#">Videos</a></li>
-          </ul>
-      </li>
-      <li><a href="#">Admin</a></li>
+      <li><a [routerLink]="['/stats']">Stats</a></li>
+      <li><a [routerLink]="['/admin']">Admin</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
