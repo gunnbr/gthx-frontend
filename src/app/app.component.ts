@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FactoidService } from './factoids/factoid.service';
+import { FactoidService } from './factoid.service';
 import { MenuItem } from 'primeng/primeng';
 
 @Component({
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
       {label: "Home", icon: "fa-home", routerLink: ["/welcome"]},
       {label: "Commands", icon: "fa-question-circle", routerLink: ["/commands"]},
       {label: "Factoids", icon: "fa-list", routerLink: ["/factoids"]},
-      {label: "Stats", icon: "fa-info-circle", routerLink: ["/stats"]},
+      {label: "Top stats", icon: "fa-info-circle", routerLink: ["/stats"]},
       {label: "Admin", icon: "fa-cogs", routerLink: ["/admin"]},
     ];
   }

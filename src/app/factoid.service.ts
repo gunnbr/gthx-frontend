@@ -9,11 +9,14 @@ import 'rxjs/add/operator/do';
 
 import { IFactoid } from './factoids/factoid';
 import { ISearchResponse } from './factoids/search-response';
+import { IStatResponse } from './stats/stats-response';
 
 @Injectable()
 export class FactoidService {
 
   private _factoidUrl = 'http://ec2-52-10-64-85.us-west-2.compute.amazonaws.com/cgi-bin/factoids.py?searchstring=';
+  private _statsUrl = 'http://ec2-52-10-64-85.us-west-2.compute.amazonaws.com/cgi-bin/stats.py'
+
   constructor(private _http: HttpClient) { }
 
   searchFactoids(searchString:string): Observable<ISearchResponse>{
@@ -22,18 +25,14 @@ export class FactoidService {
     .catch(this.handleError);
   }
 
+  getStats(): Observable<IStatResponse>{
+    return this._http.get<IStatResponse>(this._statsUrl)
+      .catch(this.handleError);
+  }
+
   private handleError(err: HttpErrorResponse){
     console.log(err.message);
     return Observable.throw(err.message);
   }
 
-  getFactoids(): IFactoid[]{
-    return [
-      {
-        item: 'i3',
-        value: 'A great printer',
-        nick: 'Prusa'
-      }
-    ];
-  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IFactoid } from './factoid';
-import { FactoidService } from './factoid.service';
+import { FactoidService } from '../factoid.service';
 
 @Component({
   selector: 'gthx-factoid-list',

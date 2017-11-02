@@ -1,11 +1,9 @@
 <div class="ui-g">
-  <div class="header ui-g-12">
-    <h2>
-      Factoids
-    </h2>
-    <h3>Search through gthx's database of factoids to find one
-      you're interested in.
-    </h3>
+  <div class="content-section introduction">
+    <div>
+      <span class="feature-title">Factoids</span>
+      <span>Search through gthx's database of factoids</span>
+    </div>
   </div>
 
 <!--
@@ -22,7 +20,7 @@
 
   <p-dataTable [value]="factoids" class="ui-g-12">
     <p-column field="item" header="Factoid"></p-column>
-    <p-column field="value" header="Value"></p-column>
+    <p-column field="value" header="Value" [style]="{'overflow':'auto'}" ></p-column>
     <p-column field="nick" header="Set by" [sortable]="true"></p-column>
   </p-dataTable>
 </div>
