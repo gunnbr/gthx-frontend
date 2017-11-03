@@ -10,6 +10,7 @@ import { MenuItem } from 'primeng/primeng';
 })
 export class AppComponent implements OnInit{
   menuItems: MenuItem[];
+  miniMenuItems: MenuItem[];
   title = 'gthx';
 
   ngOnInit(){
@@ -20,5 +21,12 @@ export class AppComponent implements OnInit{
       {label: "Top stats", icon: "fa-info-circle", routerLink: ["/stats"]},
       {label: "Admin", icon: "fa-cogs", routerLink: ["/admin"]},
     ];
+
+    this.miniMenuItems = [];
+    this.menuItems.forEach( (item : MenuItem) => {
+      let miniItem = { icon: item.icon, routerLink: item.routerLink }
+      this.miniMenuItems.push(miniItem);
+    })
+
   }
 }
