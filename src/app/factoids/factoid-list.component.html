@@ -19,7 +19,7 @@
 -->
 
   <p-dataTable [value]="factoids" class="ui-g-12">
-    <p-column field="item" header="Factoid"></p-column>
+    <p-column field="item" header="Factoid" [style]="{'overflow':'hidden'}"></p-column>
     <p-column field="value" header="Value" [style]="{'overflow':'auto'}" ></p-column>
     <p-column field="nick" header="Set by" [sortable]="true"></p-column>
   </p-dataTable>

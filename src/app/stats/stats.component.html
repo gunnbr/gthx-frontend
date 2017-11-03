@@ -6,9 +6,9 @@
   </div>
     
   <p-dataTable [value]="factoids" class="ui-g-12">
-    <p-column field="item" header="Factoid" [style]="{'width':'15%'}"></p-column>
+    <p-column field="item" header="Factoid" [style]="{'overflow':'hidden','width':'20%'}"></p-column>
     <p-column field="value" header="Value" [style]="{'overflow':'auto', 'width':'70%'}" ></p-column>
-    <p-column field="count" header="# of references" [sortable]="true" [style]="{'width':'15%'}"></p-column>
+    <p-column field="count" header="# of references" [style]="{'overflow':'hidden','width':'10%'}"></p-column>
   </p-dataTable>
 </div>
   
