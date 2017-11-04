@@ -1,0 +1,45 @@
+<div class="ui-g">
+  <div class="content-section introduction">
+    <div>
+      <span class="feature-title">Register New User</span>
+    </div>
+  </div>
+
+  <div class="ui-g ui-fluid">
+
+    <form>
+      <div class="ui-g-12">
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+          <input type="text" [(ngModel)]="registerData.name" name="realname" pInputText placeholder="Real Name">         
+        </div>
+      </div>
+        
+      <div class="ui-g-12">
+          <div class="ui-inputgroup">
+            <span class="ui-inputgroup-addon"><i class="fa fa-envelope"></i></span>
+            <input type="text" [(ngModel)]="registerData.email" name="email" pInputText placeholder="Email">
+          </div>
+        </div>
+      
+      <div class="ui-g-12">
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="fa fa-user-secret"></i></span>
+          <input type="text" [(ngModel)]="registerData.username" name="username" pInputText placeholder="Username">   
+        </div>
+      </div>
+      
+      <div class="ui-g-12">
+        <div class="ui-inputgroup">
+          <span class="ui-inputgroup-addon"><i class="fa fa-lock"></i></span>
+          <input type="password" [(ngModel)]="registerData.password" name="password" pInputText placeholder="Password">   
+        </div>
+    </div>
+
+    <div class="ui-g-2">
+      <button (click)="post()" label="Submit" pButton type="button"></button>
+    </div>
+  </form>
+  
+</div>
+      

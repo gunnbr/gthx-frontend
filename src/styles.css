@@ -38,3 +38,17 @@ body .ui-menu .ui-menu-list .ui-menuitem .ui-menuitem-link.ui-state-active{
     margin-bottom: 20px;
     display: block;
 }
+
+.top-menu {
+    float: right;
+    padding: 0;
+}
+
+.top-menu ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+.top-menu li {
+    display: inline;
+}

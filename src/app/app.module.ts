@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
-import { MenuModule, DataTableModule, SharedModule, PanelModule } from 'primeng/primeng';
+import { MenuModule, DataTableModule, SharedModule, PanelModule, ButtonModule } from 'primeng/primeng';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 import { AppRoutingModule } from './app-routing.module';
@@ -13,6 +13,7 @@ import { FactoidListComponent } from './factoids/factoid-list.component';
 import { StatsComponent } from './stats/stats.component';
 import { AdminComponent } from './admin/admin.component';
 import { CommandsComponent } from './commands/commands.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { CommandsComponent } from './commands/commands.component';
     StatsComponent,
     AdminComponent,
     CommandsComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +34,8 @@ import { CommandsComponent } from './commands/commands.component';
     MenuModule,
     DataTableModule,
     SharedModule,
-    PanelModule
+    PanelModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
