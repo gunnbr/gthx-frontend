@@ -8,8 +8,9 @@
   <div class="ui-g-6">
     <div class="top-menu">
       <ul>
-        <li><a routerLink="/register"><button label="Register" pButton type="button" icon="fa-gear" iconPos="left"></button></a></li>
-        <li><button pButton type="button" label="Login" icon="fa-sign-in" iconPos="left"></button></li>
+        <li *ngIf="!authService.isAuthenticated"><a routerLink="/register"><button label="Register" pButton type="button" icon="fa-gear" iconPos="left"></button></a></li>
+        <li *ngIf="!authService.isAuthenticated"><button pButton type="button" label="Login" icon="fa-sign-in" iconPos="left"></button></li>
+        <li *ngIf="authService.isAuthenticated"><button pButton type="button" label="Logout" icon="fa-sign-out" iconPos="left"></button></li>
       </ul>
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'gthx-register',
@@ -9,14 +10,14 @@ export class RegisterComponent implements OnInit {
 
   registerData = { }
 
-  constructor() { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
   }
 
   post() {
     console.log(this.registerData)
-    //this.authService.registerUser(this.registerData)
+    this.authService.registerUser(this.registerData)
   }
 
 }

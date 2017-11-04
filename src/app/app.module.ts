@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { MenuModule, DataTableModule, SharedModule, PanelModule, ButtonModule } from 'primeng/primeng';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
@@ -14,6 +14,8 @@ import { StatsComponent } from './stats/stats.component';
 import { AdminComponent } from './admin/admin.component';
 import { CommandsComponent } from './commands/commands.component';
 import { RegisterComponent } from './register/register.component';
+import { AuthService } from './auth.service';
+import { AuthInterceptorService } from './authinterceptor.service';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,11 @@ import { RegisterComponent } from './register/register.component';
     PanelModule,
     ButtonModule
   ],
-  providers: [],
+  providers: [AuthService, { 
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

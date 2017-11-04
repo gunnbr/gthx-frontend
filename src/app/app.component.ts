@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FactoidService } from './factoid.service';
 import { MenuItem } from 'primeng/primeng';
+import { AuthService } from './auth.service'
 
 @Component({
   selector: 'gthx-root',
@@ -12,6 +13,8 @@ export class AppComponent implements OnInit{
   menuItems: MenuItem[];
   miniMenuItems: MenuItem[];
   title = 'gthx';
+
+  constructor(private authService: AuthService) { }
 
   ngOnInit(){
     this.menuItems = [
