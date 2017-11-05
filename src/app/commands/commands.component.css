@@ -1,8 +1,41 @@
 .example {
     border-style: solid;
     border-width: 1px;
-    font-family: Courier New, Courier, monospace;
+    font-family: 'Courier New', Courier, monospace;
     background-color: #EFEFEF;
     margin: 16px;
     padding: 5px;
+}
+
+.example-panel {
+    margin: 5px;
+    width: 100%;
+}
+
+.yourname {
+}
+
+.command::before {
+    content: "you> ";
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: cornflowerblue;
+    width: 6em;
+}
+
+.command {
+    width: 100%;
+    display: block;
+}
+
+.response::before {
+    content: "gthx> ";
+    font-style: italic;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: forestgreen;
+    width: 6em;
+}
+
+.response{
+    display: block;
 }
