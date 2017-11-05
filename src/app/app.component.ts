@@ -14,7 +14,7 @@ export class AppComponent implements OnInit{
   miniMenuItems: MenuItem[];
   title = 'gthx';
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
 
   ngOnInit(){
     this.menuItems = [

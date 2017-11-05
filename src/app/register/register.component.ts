@@ -8,7 +8,7 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerData = { }
+  registerData : any // TODO: Make a real type for this!
 
   constructor(private authService: AuthService) { }
 
