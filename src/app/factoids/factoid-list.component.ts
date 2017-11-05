@@ -29,7 +29,7 @@ export class FactoidListComponent implements OnInit {
   term$ = new Subject<string>();
   factoids: IFactoid[];
   errorMessage: string;
-  _searchString: string = 'prusa';
+  _searchString: string = '';
   get searchString(): string{
     return this._searchString;
   }
