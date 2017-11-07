@@ -37,6 +37,7 @@
 
   <p-dialog header="Login" [(visible)]="displayLoginDialog" [modal]="true" [closable]="false" [showHeader]="false">
     <!-- TODO: Fix the spacing here -->
+    <!-- TODO: Start with the focus in the username box when opened -->
     <div class="ui-inputgroup">
         <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
         <input type="text" [(ngModel)]="loginData.username"  pInputText placeholder="Username">         
@@ -49,6 +50,7 @@
       Login failed: {{errorMessage}}
     </div>
     <p-footer>
+      <!-- TODO: Make return in the password box automatically try to login -->
       <button pButton type="button" label="Login" (click)="login()"></button>
       <button pButton type="button" label="Cancel" (click)="hideLoginDialog()"></button>
     </p-footer>
