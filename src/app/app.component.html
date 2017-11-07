@@ -9,7 +9,7 @@
     <div class="top-menu">
       <ul>
         <li *ngIf="!authService.isAuthenticated"><a routerLink="/register"><button label="Register" pButton type="button" icon="fa-gear" iconPos="left"></button></a></li>
-        <li *ngIf="!authService.isAuthenticated"><button pButton type="button" label="Login" icon="fa-sign-in" iconPos="left"></button></li>
+        <li *ngIf="!authService.isAuthenticated"><button pButton type="button" label="Login" (click)="showLoginDialog()" icon="fa-sign-in" iconPos="left"></button></li>
         <li *ngIf="authService.isAuthenticated"><button pButton type="button" label="Logout" (click)="authService.logout()" icon="fa-sign-out" iconPos="left"></button></li>
       </ul>
     </div>
@@ -34,4 +34,23 @@
     <hr>
     Robot icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
   </div>
+
+  <p-dialog header="Login" [(visible)]="displayLoginDialog" [modal]="true" [closable]="false" [showHeader]="false">
+    <!-- TODO: Fix the spacing here -->
+    <div class="ui-inputgroup">
+        <span class="ui-inputgroup-addon"><i class="fa fa-user"></i></span>
+        <input type="text" [(ngModel)]="loginData.username"  pInputText placeholder="Username">         
+    </div>
+    <div class="ui-inputgroup">
+      <span class="ui-inputgroup-addon"><i class="fa fa-lock"></i></span>
+      <input type="password" name="password" [(ngModel)]='loginData.pwd' pInputText placeholder="Password">   
+    </div>
+    <div class="loginError" *ngIf="this.errorMessage">
+      Login failed: {{errorMessage}}
+    </div>
+    <p-footer>
+      <button pButton type="button" label="Login" (click)="login()"></button>
+      <button pButton type="button" label="Cancel" (click)="hideLoginDialog()"></button>
+    </p-footer>
+  </p-dialog>
 </div>

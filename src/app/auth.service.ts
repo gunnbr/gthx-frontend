@@ -28,14 +28,20 @@ export class AuthService {
         })
     }    
     
-    loginUser(loginData) {
-        this.http.post<any>(this.path + '/login', loginData).subscribe(res => {
-            this.saveToken(res.token)
-        })
+    async loginUser(loginData):Promise<string> {
+        try{
+            let response = await this.http.post<any>(this.path + '/login', loginData).toPromise();
+            
+            this.saveToken(response.token)
+            return null
+        }
+        catch (errorResponse){
+            console.log('Login failed: ' + errorResponse.error.message)
+            return errorResponse.error.message
+        }
     }
 
     saveToken(token) {
         localStorage.setItem(this.TOKEN_KEY, token)
     }
-
 }

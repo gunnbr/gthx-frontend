@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { IRegisterData } from './registerData';
 
 @Component({
   selector: 'gthx-register',
@@ -8,8 +9,13 @@ import { AuthService } from '../auth.service';
 })
 export class RegisterComponent implements OnInit {
 
-  registerData : any // TODO: Make a real type for this!
-
+  registerData : IRegisterData = {
+    realname: '',
+    username: '',
+    email: '',
+    password: ''
+  }
+  
   constructor(private authService: AuthService) { }
 
   ngOnInit() {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FactoidService } from './factoid.service';
 import { MenuItem } from 'primeng/primeng';
 import { AuthService } from './auth.service'
+import { ILoginData } from './loginData';
 
 @Component({
   selector: 'gthx-root',
@@ -13,6 +14,13 @@ export class AppComponent implements OnInit{
   menuItems: MenuItem[];
   miniMenuItems: MenuItem[];
   title = 'gthx';
+  loginData:ILoginData = {
+    username: '',
+    pwd: ''
+  };
+  errorMessage:string;
+
+  displayLoginDialog: boolean = false;
 
   constructor(public authService: AuthService) { }
 
@@ -30,6 +38,24 @@ export class AppComponent implements OnInit{
       let miniItem = { icon: item.icon, routerLink: item.routerLink }
       this.miniMenuItems.push(miniItem);
     })
+  }
 
+  showLoginDialog() {
+    this.displayLoginDialog = true;
+  }
+
+  hideLoginDialog() {
+    this.displayLoginDialog = false;
+  }
+
+  async login(){
+    // TODO: Check that username and password have been entered
+    let error = await this.authService.loginUser(this.loginData);
+    if (error){
+      this.errorMessage = error
+    }
+    else{
+      this.hideLoginDialog()
+    }
   }
 }

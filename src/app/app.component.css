@@ -84,6 +84,10 @@
   display:none;
 }
 
+.loginError {
+  color: red;
+  font-style: italic;
+}
 /*
 
 @media screen and (min-width: 40.063em) {
