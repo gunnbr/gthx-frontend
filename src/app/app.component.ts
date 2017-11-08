@@ -30,7 +30,10 @@ export class AppComponent implements OnInit{
       {label: "Commands", icon: "fa-question-circle", routerLink: ["/commands"]},
       {label: "Factoids", icon: "fa-list", routerLink: ["/factoids"]},
       {label: "Top stats", icon: "fa-info-circle", routerLink: ["/stats"]},
-      {label: "Admin", icon: "fa-cogs", routerLink: ["/admin"]},
+      {label: "Admin", icon: "fa-cogs", items: [
+          {label: 'Factoids', routerLink: ["/admin"]},
+          {label: 'Users', routerLink: ["/admin"]}
+      ]},
     ];
 
     this.miniMenuItems = [];
