@@ -16,6 +16,7 @@ import { CommandsComponent } from './commands/commands.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthService } from './auth.service';
 import { AuthInterceptorService } from './authinterceptor.service';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { AuthInterceptorService } from './authinterceptor.service';
     AdminComponent,
     CommandsComponent,
     RegisterComponent,
+    AdminUsersComponent,
   ],
   imports: [
     BrowserModule,

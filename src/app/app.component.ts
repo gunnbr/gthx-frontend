@@ -3,12 +3,13 @@ import { FactoidService } from './factoid.service';
 import { MenuItem } from 'primeng/primeng';
 import { AuthService } from './auth.service'
 import { ILoginData } from './loginData';
+import { UserService } from './user.service';
 
 @Component({
   selector: 'gthx-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [FactoidService]
+  providers: [FactoidService, UserService]
 })
 export class AppComponent implements OnInit{
   menuItems: MenuItem[];
@@ -32,7 +33,7 @@ export class AppComponent implements OnInit{
       {label: "Top stats", icon: "fa-info-circle", routerLink: ["/stats"]},
       {label: "Admin", icon: "fa-cogs", items: [
           {label: 'Factoids', routerLink: ["/admin"]},
-          {label: 'Users', routerLink: ["/admin"]}
+          {label: 'Users', routerLink: ["/admin-users"]}
       ]},
     ];
 

@@ -6,8 +6,10 @@ import { AdminComponent } from './admin/admin.component';
 import { StatsComponent } from './stats/stats.component';
 import { CommandsComponent } from './commands/commands.component';
 import { RegisterComponent } from './register/register.component';
+import { AdminUsersComponent } from './admin-users/admin-users.component';
 
 const routes: Routes = [
+  {path: 'admin-users', component: AdminUsersComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'factoids', component: FactoidListComponent},
   {path: 'welcome', component: WelcomeComponent},

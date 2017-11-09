@@ -1,0 +1,17 @@
+<div class="ui-g">
+  <div class="content-section introduction">
+    <div>
+      <span class="feature-title">User Administration</span>
+      <span>Control those users!</span>
+    </div>
+  </div>
+  
+  <p-dataTable [value]="users" class="ui-g-12">
+    <p-column field="username" header="Username" [style]="{'overflow':'hidden'}" [sortable]="true"></p-column>
+    <p-column field="realname" header="Real Name" [style]="{'overflow':'auto'}" [sortable]="true"></p-column>
+    <p-column field="email" header="Email" [sortable]="true"></p-column>
+    <p-column field="canEditFactoids" header="Edit Factoids?" [sortable]="true"></p-column>
+    <p-column field="canLockFactoids" header="Lock Factoids?" [sortable]="true"></p-column>
+    <p-column field="canCreateUsers" header="Edit Users?" [sortable]="true"></p-column>
+  </p-dataTable>
+</div>
