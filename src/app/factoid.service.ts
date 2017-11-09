@@ -14,13 +14,14 @@ import { IStatResponse } from './stats/stats-response';
 @Injectable()
 export class FactoidService {
 
-  private _factoidUrl = 'http://ec2-52-10-64-85.us-west-2.compute.amazonaws.com/cgi-bin/factoids.py?searchstring=';
+ // private _factoidUrl = 'http://ec2-52-10-64-85.us-west-2.compute.amazonaws.com/cgi-bin/factoids.py?searchstring=';
+  private _factoidUrl = 'http://localhost:3000/factoids/';
   private _statsUrl = 'http://ec2-52-10-64-85.us-west-2.compute.amazonaws.com/cgi-bin/stats.py'
 
   constructor(private _http: HttpClient) { }
 
-  searchFactoids(searchString:string): Observable<ISearchResponse>{
-    return this._http.get<ISearchResponse>(this._factoidUrl + searchString)
+  searchFactoids(searchString:string): Observable<IFactoid[]>{
+    return this._http.get<IFactoid[]>(this._factoidUrl + searchString)
     //.do(data => console.log('Factoids: ' + JSON.stringify(data)))
     .catch(this.handleError);
   }

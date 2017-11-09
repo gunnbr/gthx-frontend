@@ -19,10 +19,8 @@ export class FactoidListComponent implements OnInit {
     .distinctUntilChanged()
     .subscribe(term => {
       if (term){
-      console.log('  --- ' + term);
       this.search(term);
       }
-      else { console.log('  -- <NO SEARCH TERM>');}
     });
    }
 
@@ -41,12 +39,11 @@ export class FactoidListComponent implements OnInit {
   search(value:string){
     this._factoidService.searchFactoids(value)
     .subscribe(response => {
-        this.factoids = response.data;
+        this.factoids = response;
        },
       error => this.errorMessage = <any>error);
   }
 
   ngOnInit() {
-    this.search(this.searchString);
   }
 }
