@@ -10,13 +10,13 @@ import 'rxjs/add/operator/do';
 import { IFactoid } from './factoids/factoid';
 import { ISearchResponse } from './factoids/search-response';
 import { IStatResponse } from './stats/stats-response';
+import { environment } from '../environments/environment.prod';
 
 @Injectable()
 export class FactoidService {
 
- // private _factoidUrl = 'http://ec2-52-10-64-85.us-west-2.compute.amazonaws.com/cgi-bin/factoids.py?searchstring=';
-  private _factoidUrl = 'http://localhost:3000/factoids/';
-  private _statsUrl = 'http://ec2-52-10-64-85.us-west-2.compute.amazonaws.com/cgi-bin/stats.py'
+  private _factoidUrl = environment.SERVER_URL + '/factoids/';
+  private _statsUrl = environment.SERVER_URL + '/stats/'
 
   constructor(private _http: HttpClient) { }
 

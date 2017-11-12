@@ -13,7 +13,7 @@ import { IUserResponse } from './admin-users/user-response';
 @Injectable()
 export class UserService {
 
-  private _userUrl = 'http://localhost:3000/users';
+  private _userUrl = environment.SERVER_URL + '/users';
 
   constructor(private _http: HttpClient) { }
 
