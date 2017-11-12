@@ -9,6 +9,7 @@ import 'rxjs/add/operator/do';
 
 import { IUser } from './admin-users/user';
 import { IUserResponse } from './admin-users/user-response';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class UserService {

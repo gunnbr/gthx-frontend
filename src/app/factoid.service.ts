@@ -10,7 +10,7 @@ import 'rxjs/add/operator/do';
 import { IFactoid } from './factoids/factoid';
 import { ISearchResponse } from './factoids/search-response';
 import { IStatResponse } from './stats/stats-response';
-import { environment } from '../environments/environment.prod';
+import { environment } from '../environments/environment';
 
 @Injectable()
 export class FactoidService {
