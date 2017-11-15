@@ -5,7 +5,7 @@ import { environment } from '../environments/environment';
 @Injectable()
 export class AuthService {
     messages = []
-    path = environment.SERVER_URL + '/auth'
+    path = environment.SERVER_URL + 'auth'
 
     TOKEN_KEY = 'token'
 

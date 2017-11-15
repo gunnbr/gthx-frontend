@@ -9,14 +9,14 @@ import 'rxjs/add/operator/do';
 
 import { IFactoid } from './factoids/factoid';
 import { ISearchResponse } from './factoids/search-response';
-import { IStatResponse } from './stats/stats-response';
+import { IStat } from './stats/stat';
 import { environment } from '../environments/environment';
 
 @Injectable()
 export class FactoidService {
 
-  private _factoidUrl = environment.SERVER_URL + '/factoids/';
-  private _statsUrl = environment.SERVER_URL + '/stats/'
+  private _factoidUrl = environment.SERVER_URL + 'factoids/';
+  private _statsUrl = environment.SERVER_URL + 'stats/factoids'
 
   constructor(private _http: HttpClient) { }
 
@@ -26,8 +26,8 @@ export class FactoidService {
     .catch(this.handleError);
   }
 
-  getStats(): Observable<IStatResponse>{
-    return this._http.get<IStatResponse>(this._statsUrl)
+  getStats(): Observable<IStat[]>{
+    return this._http.get<IStat[]>(this._statsUrl)
       .catch(this.handleError);
   }
 

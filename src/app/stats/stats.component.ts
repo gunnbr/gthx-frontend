@@ -16,7 +16,8 @@ export class StatsComponent implements OnInit {
   ngOnInit() {
     this._factoidService.getStats()
     .subscribe(response => {
-        this.factoids = response.data;
+      console.log('Stats response is: ' + response);
+        this.factoids = response;
        },
       error => this.errorMessage = <any>error);
   }
