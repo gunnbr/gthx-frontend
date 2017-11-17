@@ -15,8 +15,8 @@ import { environment } from '../environments/environment';
 @Injectable()
 export class FactoidService {
 
-  private _factoidUrl = environment.SERVER_URL + 'factoids/';
-  private _statsUrl = environment.SERVER_URL + 'stats/factoids'
+  private _factoidUrl = environment.SERVER_URL + '/factoids/';
+  private _statsUrl = environment.SERVER_URL + '/stats/factoids'
 
   constructor(private _http: HttpClient) { }
 

@@ -14,7 +14,7 @@ import { environment } from '../environments/environment';
 @Injectable()
 export class UserService {
 
-  private _userUrl = environment.SERVER_URL + 'users';
+  private _userUrl = environment.SERVER_URL + '/users';
 
   constructor(private _http: HttpClient) { }
 
