@@ -6,12 +6,27 @@
     </div>
   </div>
   
-  <p-dataTable [value]="users" class="ui-g-12">
-    <p-column field="username" header="Username" [style]="{'overflow':'hidden'}" [sortable]="true"></p-column>
-    <p-column field="realname" header="Real Name" [style]="{'overflow':'auto'}" [sortable]="true"></p-column>
-    <p-column field="email" header="Email" [sortable]="true"></p-column>
-    <p-column field="canEditFactoids" header="Edit Factoids?" [sortable]="true"></p-column>
-    <p-column field="canLockFactoids" header="Lock Factoids?" [sortable]="true"></p-column>
-    <p-column field="canCreateUsers" header="Edit Users?" [sortable]="true"></p-column>
-  </p-dataTable>
+  <p-dataTable [value]="users" [(selection)]="selectedRows" class="ui-g-12 usertable">
+    <p-column selectionMode="multiple" styleClass="selectBoxColumn" [style]="{'width':'3%'}"></p-column>
+    <p-column field="username" header="Username" rowspan="2" [style]="{'overflow':'hidden'}" [sortable]="true"></p-column>
+    <p-column field="realname" header="Real Name" rowspan="2" [style]="{'overflow':'auto'}" [sortable]="true"></p-column>
+    <p-column field="email" header="Email" rowspan="2" [sortable]="true"></p-column>
+    <p-column field="canEditFactoids" header="Factoids?" [sortable]="true" [style]="{'width':'10%'}">
+      <ng-template let-row="rowData" let-index="rowIndex" let-col pTemplate="body">
+        <input type="checkbox" [(ngModel)]="row[col.field]"/>
+      </ng-template>
+    </p-column>
+    <p-column field="canLockFactoids" header="Lock?" [sortable]="true" [style]="{'width':'10%'}">
+      <ng-template let-row="rowData" let-index="rowIndex" let-col pTemplate="body">
+        <input type="checkbox" [(ngModel)]="row[col.field]"/>
+      </ng-template>
+    </p-column>
+    <p-column field="canCreateUsers" header="Users?" [sortable]="true" [style]="{'width':'10%'}">
+      <ng-template let-row="rowData" let-index="rowIndex" let-col pTemplate="body">
+        <input type="checkbox" [(ngModel)]="row[col.field]"/>
+      </ng-template>
+    </p-column>
+</p-dataTable>
+
+  <button pButton type="button" (click)="onSubmit()" label="Submit"></button>
 </div>

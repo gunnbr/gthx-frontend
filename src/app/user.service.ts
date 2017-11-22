@@ -8,7 +8,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 
 import { IUser } from './admin-users/user';
-import { IUserResponse } from './admin-users/user-response';
 import { environment } from '../environments/environment';
 
 @Injectable()
@@ -18,8 +17,8 @@ export class UserService {
 
   constructor(private _http: HttpClient) { }
 
-  getUsers(): Observable<IUserResponse>{
-    return this._http.get<IUserResponse>(this._userUrl)
+  getUsers(): Observable<IUser[]>{
+    return this._http.get<IUser[]>(this._userUrl)
     .catch(this.handleError);
   }
 

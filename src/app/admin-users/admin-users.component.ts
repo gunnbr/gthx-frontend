@@ -11,6 +11,8 @@ export class AdminUsersComponent implements OnInit {
   users: IUser[];
   errorMessage: string;
 
+  selectedRows: Array<any>;
+
   constructor(private _userService: UserService) { }
 
   ngOnInit() {
@@ -20,10 +22,14 @@ export class AdminUsersComponent implements OnInit {
   getUsers(){
     this._userService.getUsers()
     .subscribe(response => {
-        this.users = response.users;
-       },
+        console.log('Got user response: ' + JSON.stringify(response))
+        this.users = response;
+      },
       error => this.errorMessage = <any>error);
   }
 
+  onSubmit(){
+    console.log(JSON.stringify(this.users));
+  }
 
 }
