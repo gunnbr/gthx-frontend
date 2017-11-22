@@ -10,6 +10,10 @@ import { UserService } from '../user.service';
 export class AdminUsersComponent implements OnInit {
   users: IUser[];
   errorMessage: string;
+  displayDialog: boolean;
+  password: string;
+  password2: string;
+  user: IUser;
 
   selectedRows: Array<any>;
 
@@ -32,4 +36,25 @@ export class AdminUsersComponent implements OnInit {
     console.log(JSON.stringify(this.users));
   }
 
+  onRowSelect(event) {
+    console.log(JSON.stringify(event.data));
+    //this.newCar = false;
+    this.user = event.data;
+    this.displayDialog = true;
+  }
+
+  cancel() {
+    this.user = null;
+    this.displayDialog = false;
+  }
+  
+  save() {
+    this.user = null;
+    this.displayDialog = false;
+  }
+
+  delete() {
+    this.user = null;
+    this.displayDialog = false;
+  }
 }

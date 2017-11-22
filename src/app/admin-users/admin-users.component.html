@@ -6,8 +6,7 @@
     </div>
   </div>
   
-  <p-dataTable [value]="users" [(selection)]="selectedRows" class="ui-g-12 usertable">
-    <p-column selectionMode="multiple" styleClass="selectBoxColumn" [style]="{'width':'3%'}"></p-column>
+  <p-dataTable [value]="users" selectionMode="single" (onRowSelect)="onRowSelect($event)" [(selection)]="selectedRows" class="ui-g-12 usertable">
     <p-column field="username" header="Username" rowspan="2" [style]="{'overflow':'hidden'}" [sortable]="true"></p-column>
     <p-column field="realname" header="Real Name" rowspan="2" [style]="{'overflow':'auto'}" [sortable]="true"></p-column>
     <p-column field="email" header="Email" rowspan="2" [sortable]="true"></p-column>
@@ -26,7 +25,40 @@
         <input type="checkbox" [(ngModel)]="row[col.field]"/>
       </ng-template>
     </p-column>
-</p-dataTable>
 
-  <button pButton type="button" (click)="onSubmit()" label="Submit"></button>
+    <p-footer><div class="ui-helper-clearfix" style="width:100%"><button type="button" pButton icon="fa-plus" style="float:left" (click)="showDialogToAdd()" label="Add"></button></div></p-footer>
+  </p-dataTable>
+
+  <p-dialog header="User Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true">
+      <div class="ui-grid ui-grid-responsive ui-fluid" *ngIf="user">
+          <div class="ui-grid-row">
+              <div class="ui-grid-col-4"><label for="username">Username</label></div>
+              <div class="ui-grid-col-8"><input pInputText id="username" [(ngModel)]="user.username" /></div>
+          </div>
+          <div class="ui-grid-row">
+              <div class="ui-grid-col-4"><label for="realname">Real Name</label></div>
+              <div class="ui-grid-col-8"><input pInputText id="realname" [(ngModel)]="user.realname" /></div>
+          </div>
+          <div class="ui-grid-row">
+              <div class="ui-grid-col-4"><label for="email">Email</label></div>
+              <div class="ui-grid-col-8"><input pInputText id="email" [(ngModel)]="user.email" /></div>
+          </div>
+          <div class="ui-grid-row">
+              <div class="ui-grid-col-4"><label for="password">Password</label></div>
+              <div class="ui-grid-col-8"><input pInputText id="password" [(ngModel)]="password" /></div>
+          </div>
+          <div class="ui-grid-row">
+              <div class="ui-grid-col-4"><label for="password2">Verify Password</label></div>
+              <div class="ui-grid-col-8"><input pInputText id="password2" [(ngModel)]="password" /></div>
+          </div>
+      </div>
+      <p-footer>
+          <div class="ui-dialog-buttonpane ui-helper-clearfix">
+              <button type="button" pButton icon="fa-ban" (click)="cancel()" label="Cancel"></button>
+              <button type="button" pButton icon="fa-close" (click)="delete()" label="Delete"></button>
+              <button type="button" pButton icon="fa-check" (click)="save()" label="Save"></button>
+            </div>
+      </p-footer>
+  </p-dialog>
+  
 </div>
